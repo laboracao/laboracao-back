@@ -20,7 +20,7 @@ const io = socketIo(server, {
 //   useUnifiedTopology: true
 // });
 
-mongoose.connect('mongodb://localhost:27017/laboracao', {
+mongoose.connect(process.env.MONGO_DB_CONNECTION, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
