@@ -109,7 +109,7 @@ module.exports = {
 
     async generateHoursbyConfig(req, res) {
 
-        const { hour, minute } = req.body
+        const { hour, minute } = req.body;
 
         const currentDateOfUser = new Date();
         let listHours = [];

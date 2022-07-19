@@ -33,7 +33,8 @@ module.exports = {
 
     async put(req, res) {
 
-        const {email, gl_List, exercises, term_accept} = req.body;
+
+        const {email, gl_List, exercises, term_accept, day_config} = req.body;
 
         const { id } = req.params;
         let exercises_created;
@@ -41,10 +42,28 @@ module.exports = {
         let user = await User.findById(id);
 
         if (user) {
+
+            if(day_config){
+                const daySearched = user.gl_List.find((item) => {
+                    return item.day === day_config.day
+                });
+        
+                if (!daySearched) {
+                    user.gl_List = [...user.gl_List, ...[day_config]]
+                }else{
+                    const dayFiltered = user.gl_List.filter((item) => {
+                        return item.day !== day_config.day;
+                    });
+    
+                    user.gl_List = [...dayFiltered, ...[day_config]];
+                }
+            }
+
             const updated_at = new Date();
-            await User.findByIdAndUpdate(id, { email, gl_List, exercises, exercises_created, term_accept, updated_at });
+            await User.findByIdAndUpdate(id, { email, gl_List: user.gl_List, exercises, exercises_created, term_accept, updated_at });
             const updatedUser = await User.findById(id);
             return res.send(updatedUser);
+
         } else {
             return res.send("Usuário não encontrado");
         }
