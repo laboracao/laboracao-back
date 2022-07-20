@@ -167,6 +167,7 @@ module.exports = {
         if(legsAndFeet > 0){
             allExercises = [...allExercises, ...generateListExercises(legsAndFeet > exerciciosPernas.length ? exerciciosPernas.length : legsAndFeet, exerciciosPernas)]
         };
+        
 
         if(allExercises.length > 0){
             return res.json({exercises: allExercises});
