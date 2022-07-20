@@ -59,7 +59,7 @@ const searchTerm = async () => {
 
 const searchExercises = async () => {
     const query = gql`query MyQuery{
-        grupoDeExercicio {
+        grupoDeExercicio (first: 50) {
             id
             tipo
             nomeDoExercicio
@@ -175,7 +175,7 @@ module.exports = {
             return res.status(400).json({exercises: allExercises});
         }
 
-        // return res.json(exercises);
+        return res.json(exercises);
     },
 
     async getCheats(req, res) {
