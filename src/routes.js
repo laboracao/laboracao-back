@@ -16,6 +16,7 @@ routes.get('/users/:id', userController.get);
 routes.get('/users/:id/exercises', userController.getExercisesbyUserId);
 routes.get('/users/:id/exercises/:exercise_id', userController.getExercisebyExerciseId);
 routes.get('/users/:id/finish-exercises/', userController.finishExercises);
+routes.post('/users/:id/generate-exercises/', userController.putExercises);
 
 routes.post('/hours', hoursController.generateHoursbyConfig);
 routes.post('/exercises', hoursController.generateExercises);

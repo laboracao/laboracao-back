@@ -167,16 +167,18 @@ module.exports = {
         if(legsAndFeet > 0){
             allExercises = [...allExercises, ...generateListExercises(legsAndFeet > exerciciosPernas.length ? exerciciosPernas.length : legsAndFeet, exerciciosPernas)]
         };
+
+        return {exercises: allExercises};
         
 
-        if(allExercises.length > 0){
-            return res.json({exercises: allExercises});
+        // if(allExercises.length > 0){
+        //     return res.json({exercises: allExercises});
 
-        }else{
-            return res.status(400).json({exercises: allExercises});
-        }
+        // }else{
+        //     return res.status(400).json({exercises: allExercises});
+        // }
 
-        return res.json(exercises);
+        // return res.json(exercises);
     },
 
     async getCheats(req, res) {

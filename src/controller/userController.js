@@ -1,5 +1,5 @@
 const User = require("../schemas/userService");
-const horusController = require("./hoursController");
+const HoursController = require("./hoursController");
 const Term = require("../schemas/termService");
 
 const postUser = async (req, res) => {
@@ -29,6 +29,25 @@ const postUser = async (req, res) => {
 module.exports = {
     async post(req, res) {
         await postUser(req, res);
+    },
+
+    async putExercises(req, res){
+        const { id } = req.params;
+        
+        let exercises_created;
+        const {exercises} = await HoursController.generateExercises(req, res);
+        let user = await User.findById(id);
+
+        if (user) {
+            const updated_at = new Date();
+            await User.findByIdAndUpdate(id, { exercises, exercises_created, updated_at });
+            const updatedUser = await User.findById(id);
+            return res.send(updatedUser);
+        } else {
+            return res.status(400).send("Usuário não encontrado");
+        }
+
+
     },
 
     async put(req, res) {
