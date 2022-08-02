@@ -163,8 +163,6 @@ module.exports = {
         const {email} = req.body;
         let user = await User.findOne({ email });
         if (user?.email === email) {
-            const id = user?._id.valueOf();
-            await User.findByIdAndUpdate(id, { online: true })
             return res.status(200).json(user);
         } else {
             await postUser(req, res);
