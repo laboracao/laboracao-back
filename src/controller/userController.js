@@ -4,7 +4,7 @@ const Term = require("../schemas/termService");
 
 const postUser = async (req, res) => {
     const { email } = req.body;
-        
+
         const created_at = new Date();
         const updated_at = created_at;
         const term_accept = false;

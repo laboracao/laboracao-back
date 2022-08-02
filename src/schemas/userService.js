@@ -7,8 +7,7 @@ const UserSchema = new mongoose.Schema({
     gl_List: Array,
     term_accept: Boolean,
     created_at: Date,
-    updated_at: Date,
-    _id: String
+    updated_at: Date
 });
 
 module.exports = mongoose.model('Users', UserSchema);
