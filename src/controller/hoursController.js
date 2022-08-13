@@ -35,6 +35,21 @@ const searchInformation = async () => {
     return {information: informacao};
 }
 
+const searchSentence = async () => {
+    const query = gql` query MyQuery{
+        frases {
+            id
+            frase
+            fraseCompleta{
+                    html
+            }
+        }
+    }`;
+
+    const {frases} = await request(graphqlAPI, query);
+    return {sentences: frases};
+}
+
 const searchTerm = async () => {
     const query = gql` query MyQuery{
         termos{
@@ -70,6 +85,9 @@ const searchExercises = async () => {
                 time
                 type
                 repeatLimit
+                descricaoDoExercicio{
+                    html
+                }
                 image {
                     id
                     url
@@ -195,5 +213,12 @@ module.exports = {
     async getInformation(req, res) {
         const {information} = await searchInformation();
         return res.json({information})
+    },
+
+    async getSentence(req, res){
+        const {sentences} = await searchSentence();
+
+        let number = parseInt(((Math.random() * (sentences.length))));
+        return res.json({sentence: sentences[number]});
     }
 }

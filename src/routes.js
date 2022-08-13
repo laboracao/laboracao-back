@@ -23,5 +23,7 @@ routes.post('/exercises', hoursController.generateExercises);
 routes.get('/cheats/:type', hoursController.getCheats);
 routes.get('/term', hoursController.getTerm);
 routes.get('/information', hoursController.getInformation);
+routes.get('/sentences', hoursController.getSentence);
+
 
 module.exports = routes;
