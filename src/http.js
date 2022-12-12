@@ -15,7 +15,7 @@ const io = socketIo(server, {
   }
 });
 
-mongoose.connect('mongodb+srv://laboracao:VvvxrH1ZecXEEpUq@laboracao.o1i28.mongodb.net/laboracao?retryWrites=true&w=majority', {
+mongoose.connect(process.env.MONGO_DB_CONNECTION, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
