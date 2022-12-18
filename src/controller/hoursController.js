@@ -59,11 +59,11 @@ const searchTerm = async () => {
 
 const searchExercises = async () => {
     const query = gql`query MyQuery{
-        grupoDeExercicio {
+        grupoDeExercicio (first: 200){
             id
             tipo
             nomeDoExercicio
-            exercises {
+            exercises(first: 200) {
                 id
                 title
                 description

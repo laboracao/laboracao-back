@@ -18,7 +18,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon src/server.js",
-    "dev": "env-cmd -f .env.local nodemon src/server.js"
+    "dev": "env-cmd -f .env.local nodemon src/server.js",
+    "build": "npm build build"
   },
   "devDependencies": {
     "env-cmd": "^10.1.0"
