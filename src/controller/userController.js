@@ -93,6 +93,8 @@ module.exports = {
 
         const { id } = req.params;
 
+        console.log(process.env.MONGO_DB_CONNECTION)
+
         const project_data = {
             gl_List: 1,
             exercises: 1,
