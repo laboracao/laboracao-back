@@ -5,7 +5,8 @@ const hoursController = require("./controller/hoursController");
 const routes = Router();
 
 routes.get('/', (req, res) => {
-    return res.json({ message: 'Hello World' });
+
+    return res.json({ message: 'Hello World', mongo: process.env.MONGODB_URI });
 });
 
 routes.post('/login', userController.login);
