@@ -15,11 +15,6 @@ const io = socketIo(server, {
   }
 });
 
-// mongoose.connect('mongodb+srv://laboracao:VvvxrH1ZecXEEpUq@laboracao.o1i28.mongodb.net/laboracao?retryWrites=true&w=majority', {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true
-// });
-
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
