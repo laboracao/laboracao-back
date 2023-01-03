@@ -19,7 +19,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon src/server.js",
     "dev": "env-cmd -f .env.development nodemon src/server.js",
-    "prod": "env-cmd -f .env.production nodemon src/server.js"
+    "prod": "env-cmd -f .env.production nodemon src/server.js",
+    "build": "env-cmd -f .env.production nodemon src/server.js"
   },
   "devDependencies": {
     "env-cmd": "^10.1.0"
