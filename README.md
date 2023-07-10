@@ -11,7 +11,7 @@
 
 Para instalar os projetos (frontend e backend) localmente, é necessário instalar:
 
-- NodeJS: versão > 14
+- NodeJS: versão > 14.
 
 Feita a instalação do Node, é necessário clonar cada um dos projetos no ambiente e rodar, dentro de cada projeto, o comando:
 
