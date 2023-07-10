@@ -7,17 +7,34 @@
 - CMS (HYGRAPH)
 - DB (MONGO DB)
 
+## Instalação
+
+Para instalar os projetos (frontend e backend) localmente, é necessário instalar:
+
+- NodeJS: versão > 14
+
+Feita a instalação do Node, é necessário clonar cada um dos projetos no ambiente e rodar, dentro de cada projeto, o comando:
+
+```
+npm install
+```
+
+Este comando irá instalar todas as dependências necessárias para rodar os respectivos projetos.
+
 ## Backend
 
 Comandos para rodar o backend
 
 ```
-npm install
-
-npm start
+npm run dev
 ```
 
-Este comando irá rodar o backend em ambiente local
+Este comando irá rodar o backend em ambiente local. Para cada tipo de ambiente, há um comando específico listado no arquivo package.json.
+
+- npm run dev: Rodar projeto apontando para ambientes (banco de dados) de desenvolvimento;
+- npm run prod: Rodar projeto apontando para ambientes (banco de dados) de produção;
+
+Em ambiente local, o backend será disponibilizado em: <a href="http://localhost:8081">http://localhost:8081</a>
 
 ## Variáveis de ambiente
 
@@ -27,7 +44,7 @@ Este comando irá rodar o backend em ambiente local
 -.env.local
 -.env.production
 
-Esses arquivos possuirão as variáveis de ambiente para cada ambiente:
+Esses arquivos possuirão as variáveis para cada ambiente:
 
 ```
 MONGO_DB_CONNECTION = conexão mongoDB
@@ -45,6 +62,8 @@ Leia o README no repositório do <a href="https://github.com/laboracao/laboracao
 Neste projeto é usado o Mongo DB.
 
 É necessário criar uma conta e uma instância de banco de dados dentro do Mongo DB Atlas, e após esse processo, vincular as conexões geradas ao backend através do arquivo .env.
+
+Este banco de dados irá gerenciar os usuários, suas configurações de uso do BETO, e os exercícios gerados para cada um deles.
 
 ## CMS
 
