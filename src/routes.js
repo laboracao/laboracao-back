@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const userController = require("./controller/userController");
 const hoursController = require("./controller/hoursController");
+const countController = require("./controller/countAccessController");
 
 const routes = Router();
 
@@ -25,5 +26,6 @@ routes.get('/term', hoursController.getTerm);
 routes.get('/information', hoursController.getInformation);
 routes.get('/sentences', hoursController.getSentence);
 
+routes.post('/count', countController.post);
 
 module.exports = routes;
