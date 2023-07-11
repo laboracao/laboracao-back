@@ -24,4 +24,9 @@ module.exports = {
   async post(req, res) {
     await postCount(req, res);
   },
+
+  async get(req, res) {
+    const currentCount = await Count.findOne();
+    return res.send(currentCount);
+  }
 }
