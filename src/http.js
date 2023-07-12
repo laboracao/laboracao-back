@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const socketIo = require('socket.io');
 const cors = require('cors');
 const routes = require('./routes');
+const cron = require('./controller/cronController');
 
 const app = express();
 app.set('view engine', 'ejs');
@@ -37,6 +38,8 @@ const getApiAndEmit = socket => {
   // Emitting a new message. Will be consumed by the client
   socket.emit("FromAPI", response);
 };
+
+cron.executeClearGamification();
 
 
 // app.use(function(req, res, next) {

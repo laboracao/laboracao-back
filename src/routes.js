@@ -1,7 +1,9 @@
 const { Router } = require("express");
+
 const userController = require("./controller/userController");
 const hoursController = require("./controller/hoursController");
 const countController = require("./controller/countAccessController");
+const gamificationController = require("./controller/gamificationController");
 
 const routes = Router();
 
@@ -28,5 +30,11 @@ routes.get('/sentences', hoursController.getSentence);
 
 routes.post('/count', countController.post);
 routes.get('/count', countController.get);
+
+routes.post('/gamification', gamificationController.post);
+routes.get('/gamification', gamificationController.get);
+routes.get('/gamification/firsts', gamificationController.getTheFirsts);
+
+
 
 module.exports = routes;
