@@ -5,8 +5,12 @@ const postGamification = async (req, res) => {
   const {email, exerciseCompleteCount, userId} = req.body;
   const currentGamification = await Gamification.findOne({email});
 
+  const currentDate = new Date();
+  const currentYear = currentDate.getFullYear();
+  const currentMonth = currentDate.getMonth() + 1;
+
   if(!currentGamification){
-    const newGamification = await Gamification.create({email, exerciseCompleteCount, userId});
+    const newGamification = await Gamification.create({email, exerciseCompleteCount, year: currentYear, month: currentMonth});
     newGamification.save()
     return res.send(newGamification)
   }
@@ -15,7 +19,7 @@ const postGamification = async (req, res) => {
     const {exerciseCompleteCount: exerciseComplete, _id} = currentGamification;
     const id = _id.toString();
     await Gamification.findByIdAndUpdate(id, {exerciseCompleteCount: exerciseComplete + parseInt(exerciseCompleteCount, 10)});
-    const updatedGame = await Gamification.findOne({userId});
+    const updatedGame = await Gamification.findOne({email});
     return res.send(updatedGame);
   }
 }
