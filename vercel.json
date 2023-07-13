@@ -11,11 +11,5 @@
         "src": "/(.*)",
         "dest": "src/server.js"
       }
-    ],
-    "crons": [
-      {
-        "path": "/cron/gamification/drop",
-        "schedule": "0 0 1 * *"
-      }
     ]
   }
