@@ -2,10 +2,6 @@ const Gamification = require("../schemas/gamificationService");
 
 const postGamification = async (req, res) => {
 
-  // const currentDate = new Date();
-  // const currentYear = current  Date.getFullYear() + 1;
-  // const currentMonth = currentDate.getMonth() + 2;
-
   const {email, year, month, exerciseCompleteCount} = req.body;
   const currentGamification = await Gamification.findOne({email, year, month});
 

@@ -38,7 +38,6 @@ routes.post('/gamification/user', gamificationController.getTheByEmailMonthYear)
 routes.get('/gamification', gamificationController.get);
 routes.get('/gamification/firsts/:month/:year', gamificationController.getTheFirstsByMonthYear);
 
-
-routes.get(`/cron/gamification/drop`, cronController.executeClearGamificationDrop);
+// routes.get(`/cron/gamification/drop`, cronController.executeClearGamificationDrop);
 
 module.exports = routes;
