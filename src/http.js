@@ -7,7 +7,9 @@ const routes = require('./routes');
 
 const app = express();
 app.set('view engine', 'ejs');
-app.use(cors());
+app.use(cors({
+  origin: [process.env.FRONTEND_URL]
+}));
 const server = http.Server(app);
 const io = socketIo(server, {
   cors: {

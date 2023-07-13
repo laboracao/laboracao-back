@@ -4,6 +4,7 @@ const userController = require("./controller/userController");
 const hoursController = require("./controller/hoursController");
 const countController = require("./controller/countAccessController");
 const gamificationController = require("./controller/gamificationController");
+const cronController = require("./controller/cronController");
 
 const routes = Router();
 
@@ -36,6 +37,6 @@ routes.post('/gamification', gamificationController.post);
 routes.get('/gamification', gamificationController.get);
 routes.get('/gamification/firsts', gamificationController.getTheFirsts);
 
-
+routes.get(`/cron/gamification/drop`, (cronController.executeClearGamificationDrop));
 
 module.exports = routes;

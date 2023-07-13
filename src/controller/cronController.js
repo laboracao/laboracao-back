@@ -1,41 +1,59 @@
-var cron = require('node-cron');
+// var cron = require('node-cron');
+
+const mongoose = require('mongoose');
 
 module.exports = {
-  async executeClearGamification(mongoose){
+  async executeClearGamificationDrop(req, res){
 
-    // const mongo = await mongoose.createConnection(process.env.MONGODB_URI);
+    const mongo = await mongoose.createConnection(process.env.MONGODB_URI);
+    const dropCollection = await mongo.dropCollection('gamifications');
+
+    return res.send(`Dropped - ${dropCollection}`);
+
     // const gamificationCollections = mongoose.connection.collections["gamifications"];
 
     // if(!gamificationCollections){
     //   return;
     // }
 
-    // const test = await mongoose.connection.collections["gamifications"].drop()
+    // const gamificationDrop = await mongoose.connection.collections["gamifications"].drop();
+    // console.log(gamificationDrop);
 
-    // console.log(test);
+    // return res.send("droped");
 
-    // cron.schedule('0 0 1 1-12 *', async () => {
-    cron.schedule('* * * * *', async () => {
-      // console.log('Running...');
-      // const mongo = await mongoose.createConnection(process.env.MONGODB_URI);
-      // const hasGamificationCollection = await mongo.getDatabases('gamifications')
+    // // const mongo = await mongoose.createConnection(process.env.MONGODB_URI);
+    // // const gamificationCollections = mongoose.connection.collections["gamifications"];
 
-      // console.log(hasGamificationCollection);
+    // // if(!gamificationCollections){
+    // //   return;
+    // // }
 
-      // const dropCollection = await mongo.dropCollection('gamifications');
-      // console.log('Gamifications Droped', dropCollection)
+    // // const test = await mongoose.connection.collections["gamifications"].drop()
 
-      const gamificationCollections = mongoose.connection.collections["gamifications"];
+    // // console.log(test);
 
-      if(!gamificationCollections){
-        return;
-      }
+    // // cron.schedule('0 0 1 1-12 *', async () => {
+    // cron.schedule('* * * * *', async () => {
+    //   // console.log('Running...');
+    //   // const mongo = await mongoose.createConnection(process.env.MONGODB_URI);
+    //   // const hasGamificationCollection = await mongo.getDatabases('gamifications')
 
-      const gamificationDrop = await mongoose.connection.collections["gamifications"].drop();
-      console.log(gamificationDrop);
-    }, {
-      scheduled: true,
-      timezone: "America/Sao_Paulo"
-    });
+    //   // console.log(hasGamificationCollection);
+
+    //   // const dropCollection = await mongo.dropCollection('gamifications');
+    //   // console.log('Gamifications Droped', dropCollection)
+
+    //   const gamificationCollections = mongoose.connection.collections["gamifications"];
+
+    //   if(!gamificationCollections){
+    //     return;
+    //   }
+
+    //   const gamificationDrop = await mongoose.connection.collections["gamifications"].drop();
+    //   console.log(gamificationDrop);
+    // }, {
+    //   scheduled: true,
+    //   timezone: "America/Sao_Paulo"
+    // });
   }
 }
