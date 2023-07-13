@@ -5,11 +5,15 @@ const mongoose = require('mongoose');
 module.exports = {
   async executeClearGamificationDrop(req, res){
 
-    const mongo = await mongoose.createConnection(process.env.MONGODB_URI);
-    const dropCollection = await mongo.dropCollection('gamifications');
+    try{
+      const mongo = await mongoose.createConnection(process.env.MONGODB_URI);
+      const dropCollection = await mongo.dropCollection('gamifications');
 
-    return res.send(`Dropped - ${dropCollection}`);
-
+      return res.send(`Dropped - ${dropCollection}`);
+    }catch{
+      return res.send(`error`);
+    }
+    
     // const gamificationCollections = mongoose.connection.collections["gamifications"];
 
     // if(!gamificationCollections){
