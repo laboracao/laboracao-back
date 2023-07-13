@@ -37,6 +37,6 @@ routes.post('/gamification', gamificationController.post);
 routes.get('/gamification', gamificationController.get);
 routes.get('/gamification/firsts', gamificationController.getTheFirsts);
 
-routes.get(`/cron/gamification/drop`, (cronController.executeClearGamificationDrop));
+routes.post(`/cron/gamification/drop`, (cronController.executeClearGamificationDrop));
 
 module.exports = routes;
