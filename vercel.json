@@ -11,11 +11,11 @@
         "src": "/(.*)",
         "dest": "src/server.js"
       }
+    ],
+    "crons": [
+      {
+        "path": "/count",
+        "schedule": "0-59 * * * *"
+      }
     ]
-    // "crons": [
-    //   {
-    //     "path": "/count",
-    //     "schedule": "0-59 * * * *"
-    //   }
-    // ]
   }
