@@ -15,7 +15,7 @@
     "crons": [
       {
         "path": "/count/post",
-        "schedule": "28 20 1-31 1-12 *"
+        "schedule": "33 8 1-31 1-12 *"
       }
     ]
   }
