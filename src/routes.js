@@ -34,12 +34,11 @@ routes.get('/count/post', countController.post);
 routes.get('/count', countController.get);
 
 routes.post('/gamification', gamificationController.post);
+routes.post('/gamification/user', gamificationController.getTheByEmailMonthYear);
 routes.get('/gamification', gamificationController.get);
-routes.get('/gamification/firsts', gamificationController.getTheFirsts);
+routes.get('/gamification/firsts/:month/:year', gamificationController.getTheFirstsByMonthYear);
 
-// routes.get(`/cron/gamification/drop`, (req, res) => {
-//     console.log(req.headers.host);
-//     cronController.executeClearGamificationDrop();
-// });
+
+routes.get(`/cron/gamification/drop`, cronController.executeClearGamificationDrop);
 
 module.exports = routes;

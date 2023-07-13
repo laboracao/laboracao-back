@@ -2,15 +2,15 @@ const Gamification = require("../schemas/gamificationService");
 
 const postGamification = async (req, res) => {
 
-  const {email, exerciseCompleteCount, userId} = req.body;
-  const currentGamification = await Gamification.findOne({email});
+  // const currentDate = new Date();
+  // const currentYear = current  Date.getFullYear() + 1;
+  // const currentMonth = currentDate.getMonth() + 2;
 
-  const currentDate = new Date();
-  const currentYear = currentDate.getFullYear();
-  const currentMonth = currentDate.getMonth() + 1;
+  const {email, year, month, exerciseCompleteCount} = req.body;
+  const currentGamification = await Gamification.findOne({email, year, month});
 
   if(!currentGamification){
-    const newGamification = await Gamification.create({email, exerciseCompleteCount, year: currentYear, month: currentMonth});
+    const newGamification = await Gamification.create({email, exerciseCompleteCount, year, month});
     newGamification.save()
     return res.send(newGamification)
   }
@@ -19,7 +19,7 @@ const postGamification = async (req, res) => {
     const {exerciseCompleteCount: exerciseComplete, _id} = currentGamification;
     const id = _id.toString();
     await Gamification.findByIdAndUpdate(id, {exerciseCompleteCount: exerciseComplete + parseInt(exerciseCompleteCount, 10)});
-    const updatedGame = await Gamification.findOne({email});
+    const updatedGame = await Gamification.findOne({email, year, month});
     return res.send(updatedGame);
   }
 }
@@ -31,6 +31,26 @@ module.exports = {
 
   async getTheFirsts(req, res) {
     const gamification = await Gamification.find().sort({exerciseCompleteCount: -1}).limit(3);
+    return res.json(gamification);
+  },
+
+  async getTheFirstsByMonthYear(req, res) {
+    const {...rest} = req.params;
+
+    const month = parseInt(rest.month, 10);
+    const year = parseInt(rest.year, 10);
+
+    const gamification = await Gamification.find({month, year}).sort({exerciseCompleteCount: -1}).limit(3);
+    return res.json(gamification);
+  },
+
+  async getTheByEmailMonthYear(req, res) {
+    const {email, ...rest} = req.body;
+
+    const month = parseInt(rest.month, 10);
+    const year = parseInt(rest.year, 10);
+
+    const gamification = await Gamification.find({email, month, year}).sort({exerciseCompleteCount: -1}).limit(3);
     return res.json(gamification);
   },
 
