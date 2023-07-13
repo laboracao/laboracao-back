@@ -29,6 +29,7 @@ routes.get('/information', hoursController.getInformation);
 routes.get('/sentences', hoursController.getSentence);
 
 routes.post('/count', countController.post);
+routes.get('/count/post', countController.post);
 routes.get('/count', countController.get);
 
 routes.post('/gamification', gamificationController.post);
