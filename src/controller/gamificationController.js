@@ -2,15 +2,17 @@ const Gamification = require("../schemas/gamificationService");
 
 const postGamification = async (req, res) => {
 
+  console.log(req.body);
+
   const currentDate = new Date();
   const currentYear = currentDate.getFullYear();
   const currentMonth = currentDate.getMonth() + 1;
 
-  const {email, year, month, exerciseCompleteCount} = req.body;
+  const {email, exerciseCompleteCount} = req.body;
   const currentGamification = await Gamification.findOne({email, year:currentYear, month: currentMonth});
 
   if(!currentGamification){
-    const newGamification = await Gamification.create({email, exerciseCompleteCount, year, month});
+    const newGamification = await Gamification.create({email, exerciseCompleteCount, year:currentYear, month: currentMonth});
     newGamification.save()
     return res.send(newGamification)
   }
