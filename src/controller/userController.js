@@ -52,8 +52,7 @@ module.exports = {
 
     async put(req, res) {
 
-
-        const {email, gl_List, exercises, term_accept, day_config} = req.body;
+        const {email, gl_List, exercises, term_accept, day_config, autoplay} = req.body;
 
         const { id } = req.params;
         let exercises_created;
@@ -79,7 +78,7 @@ module.exports = {
             }
 
             const updated_at = new Date();
-            await User.findByIdAndUpdate(id, { email, gl_List: user.gl_List, exercises, exercises_created, term_accept, updated_at });
+            await User.findByIdAndUpdate(id, { email, gl_List: user.gl_List, exercises, exercises_created, term_accept, updated_at, autoplay });
             const updatedUser = await User.findById(id);
             return res.send(updatedUser);
 
@@ -92,8 +91,6 @@ module.exports = {
     async get(req, res) {
 
         const { id } = req.params;
-
-        console.log(process.env.MONGO_DB_CONNECTION)
 
         const project_data = {
             gl_List: 1,

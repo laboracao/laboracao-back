@@ -6,6 +6,7 @@ const UserSchema = new mongoose.Schema({
     exercises_created: Date,
     gl_List: Array,
     term_accept: Boolean,
+    autoplay: Boolean,
     created_at: Date,
     updated_at: Date
 });
