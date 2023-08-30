@@ -70,6 +70,6 @@ Este banco de dados irá gerenciar os usuários, suas configurações de uso do 
 Neste projeto, é usado o <a href="https://hygraph.com/">HYGRAPH CMS</a>. Um cms headless que fornece uma interface para gerenciamento de conteúdo dentro do projeto BETO.
 
 Este CMS trabalha com GRAPHQL e gera API para serem consumidas.
-A API deste projeto está disponibilizada em https://api-sa-east-1.graphcms.com/v2/cl514trr41c2c01ugbhr85p1h/master'.
+A API deste projeto está disponibilizada em [https://api-sa-east-1.graphcms.com/v2/cl514trr41c2c01ugbhr85p1h/master'](https://app.hygraph.com/).
 
-Esse CMS gerencia os cadastros de exercícios dentro do PROJETO BETO.
+Esse CMS gerencia os cadastros de exercícios e outras informações dentro do PROJETO BETO.
