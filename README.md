@@ -47,8 +47,8 @@ Em ambiente local, o backend será disponibilizado em: <a href="http://localhost
 Esses arquivos possuirão as variáveis para cada ambiente:
 
 ```
-MONGO_DB_CONNECTION = conexão mongoDB
-MONGODB_URI = Endereço do MongoDB
+MONGO_DB_CONNECTION=conexão mongoDB
+MONGODB_URI=Endereço do MongoDB
 ```
 
 Como demonstrado no arquivo .env.example
