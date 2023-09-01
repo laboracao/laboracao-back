@@ -17,6 +17,7 @@ routes.post('/login', userController.login);
 routes.post('/users/new', userController.post);
 routes.put('/users/edit/:id', userController.put);
 routes.get('/users/:id', userController.get);
+routes.get('/users', userController.getAll);
 routes.get('/users/:id/exercises', userController.getExercisesbyUserId);
 routes.get('/users/:id/exercises/:exercise_id', userController.getExercisebyExerciseId);
 routes.get('/users/:id/finish-exercises/', userController.finishExercises);

@@ -180,6 +180,11 @@ module.exports = {
         return res.status(200).json(users);
     },
 
+    async getAll(req, res){
+        let users = await User.find();
+        return res.status(200).json(users);
+    },
+
     async refreshConnection(params) {
 
         const { user_id, connection_id } = params;

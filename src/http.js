@@ -8,7 +8,7 @@ const routes = require('./routes');
 const app = express();
 app.set('view engine', 'ejs');
 app.use(cors({
-  origin: [process.env.FRONTEND_URL]
+  origin: "*"
 }));
 const server = http.Server(app);
 const io = socketIo(server, {
@@ -17,7 +17,8 @@ const io = socketIo(server, {
   }
 });
 
-mongoose.connect(process.env.MONGODB_URI, {
+// mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect('mongodb://root:root@mongo:27017/beto?authSource=admin', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
