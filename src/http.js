@@ -17,8 +17,8 @@ const io = socketIo(server, {
   }
 });
 
-// mongoose.connect(process.env.MONGODB_URI, {
-mongoose.connect('mongodb://root:root@mongo:27017/beto?authSource=admin', {
+mongoose.connect(process.env.MONGODB_URI, {
+// mongoose.connect('mongodb://root:root@mongo:27017/beto?authSource=admin', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
